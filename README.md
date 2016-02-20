@@ -2,7 +2,7 @@
 
 App for Pebble watches (primarily Pebble Time) to access real-time information on Oslo's public transport system (Ruter).
 
-# Disclaimer
+## Disclaimer
 
 This is an open source project and is in no way connected to Ruter AS or any other company.
 
@@ -11,6 +11,15 @@ features to make this application a great companion for Oslo's commuters.
 
 It is currently under the very early stages of development. If completed and if the experience it provides to users is
 satisfactory it will be made available in the Pebble store.
+
+## Folder structure
+
+```
+├─ config
+│       Configuration page shown inside the Pebble app on the phone
+└─ src
+        The actual watch app (written in C)
+```
 
 ## License
 

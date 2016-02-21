@@ -17,8 +17,12 @@ satisfactory it will be made available in the Pebble store.
 ```
 ├─ config
 │       Configuration page shown inside the Pebble app on the phone
+│
 └─ src
-        The actual watch app (written in C)
+    |   The actual watch app (written in C)
+    │
+    └─ js
+            The JavaScript app, runs in the phone, sandboxed
 ```
 
 ## License

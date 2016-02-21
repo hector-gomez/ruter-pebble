@@ -1,6 +1,6 @@
-# Ruter for Pebble 
+# Ruter for Pebble Time
 
-App for Pebble watches (primarily Pebble Time) to access real-time information on Oslo's public transport system (Ruter).
+App for Pebble Time watches to access real-time information on Oslo's public transport system (Ruter).
 
 ## Disclaimer
 

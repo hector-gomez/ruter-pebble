@@ -1,0 +1,12 @@
+h1 {
+    text-align: center;
+    padding: 15px 0 10px;
+}
+
+/*
+ * These elements are always inside LABEL elements and should be SPANs instead of DIVs.
+ * They need to be blocks to keep the right style.
+ */
+.item-input-wrapper {
+    display: block;
+}

@@ -1,0 +1,15 @@
+{
+  "name": "Ruter for Pebble config",
+  "version": "0.0.1",
+  "homepage": "https://github.com/hector-gomez/ruter-pebble",
+  "authors": [
+    "Héctor Gómez <hectorgomeziglesias@yahoo.es>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "bower_components"
+  ],
+  "dependencies": {
+    "pebble-slate": "0.0.3"
+  }
+}

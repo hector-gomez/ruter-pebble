@@ -16,6 +16,12 @@ function sendTestMessage() {
     );
 }
 
+// Listener triggered when the user presses the configuration button
+Pebble.addEventListener('showConfiguration', function onShowConfiguration(e) {
+    //TODO Change URL to the final one
+    Pebble.openURL('http://10.0.0.5/ruter-pebble-config');
+});
+
 // All the code has been run, once Pebble is ready we kickstart the app
 Pebble.addEventListener('ready', function onAppReady(e) {
     console.log('Initializing JavaScript app...');

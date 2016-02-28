@@ -1,0 +1,16 @@
+{
+  "name": "ruter-js",
+  "description": "Library to interact with the public Ruter Reise API",
+  "version": "0.0.1",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {},
+  "devDependencies": {
+    "ts-loader": "0.8.1",
+    "typescript": "1.8.2",
+    "webpack": "1.12.14"
+  },
+  "scripts": {
+    "build": "webpack"
+  }
+}

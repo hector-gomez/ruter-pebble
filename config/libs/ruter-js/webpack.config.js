@@ -12,11 +12,19 @@ module.exports = {
     },
     module: {
         loaders: [
-            { test: /\.ts(x?)$/, loader: 'ts-loader' }
+            {
+                loader: 'babel-loader!ts-loader',
+                test: /\.ts(x?)$/,
+                exclude: /node_modules/
+            }
         ]
     },
     plugins: [
-        new webpack.optimize.UglifyJsPlugin()
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false
+            }
+        })
     ],
     devtool: 'source-map'
 };

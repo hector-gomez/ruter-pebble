@@ -15,12 +15,14 @@
     <div class="item-container">
         <div class="item-container-header">Search for stops</div>
         <div class="item-container-content">
-            <label class="item">
-                <span class="item-input-wrapper item-input-wrapper-button">
-                    <input type="text" class="item-input" name="search-field" placeholder="Type the stop name">
-                </span>
-                <input type="button" id="search-button" class="item-button item-input-button" value="SEARCH">
-            </label>
+            <form name="search-form">
+                <label class="item">
+                    <span class="item-input-wrapper item-input-wrapper-button">
+                        <input type="text" class="item-input" name="search-field" placeholder="Type the stop name">
+                    </span>
+                    <input type="submit" class="item-button item-input-button" value="SEARCH">
+                </label>
+            </form>
         </div>
     </div>
 
@@ -31,5 +33,7 @@
     </div>
 
     <script src='bower_components/pebble-slate/dist/js/slate.min.js'></script>
+    <script src="libs/ruter-js/dist/ruter.js"></script>
+    <script src="add_stop.js"></script>
 </body>
 </html>

@@ -11,6 +11,13 @@ so that you know what properties to expect.
 Add the `dist/ruter.js` file to your web page. A global `Ruter` object will be available. See the _Library API_ section
 for detailed information.
 
+### Dependencies
+
+Currently the library depends on [Zepto](http://zeptojs.com) to make the Ajax calls (see `ApiConnector.ts`) because the
+Ruter rest API does not support CORS and it is therefore necessary to use JSONP. Since [Slate](http://pebble.github.io/slate)
+(Pebble's frontend framework) ships with Zepto it was chosen for this task. However, if the library was to be released
+independently this needs to be addressed.
+
 ### Browser support
 
 Key browser versions not supported:

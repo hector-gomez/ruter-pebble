@@ -5,4 +5,4 @@
 import * as PlaceAPI from './Controllers/PlaceAPI';
 
 export const version = '0.0.1';
-export let places = PlaceAPI;
+export let findPlace = PlaceAPI.findPlace;

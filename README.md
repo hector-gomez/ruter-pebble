@@ -25,6 +25,10 @@ satisfactory it will be made available in the Pebble store.
             The JavaScript app, runs in the phone, sandboxed
 ```
 
+## TODO
+
+- [ ] Ensure that the search results are in an usable order
+
 ## License
 
 The source code is provided under the MIT License. See [the LICENSE file](LICENSE) for details.

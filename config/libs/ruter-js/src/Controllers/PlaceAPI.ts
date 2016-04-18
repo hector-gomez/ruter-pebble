@@ -36,7 +36,7 @@ export function findPlace(name: string, placeType: string): Promise<PlaceInterfa
 function parseGetPlacesResponse(response: Object): PlaceInterface[] {
     let places: PlaceInterface[] = [];
 
-    Object.keys(response).forEach((key: string, index: number) => {
+    Object.keys(response).forEach((key: string) => {
         let newPlace: PlaceInterface = (<any> response)[key];
         places.push(newPlace);
     });

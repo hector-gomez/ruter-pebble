@@ -4,7 +4,7 @@ import * as Api from '../Utils/ApiConnector';
  * Queries the rest API for places matching the provided name.
  *
  * @param name Name of the place to search for.
- * @param placeType (Optional) If provided, only places of this type will be returned.
+ * @param placeType (Optional) If provided, only places of this type will be returned (e.g. Area, POI, Stop or Street).
  * @returns {Promise<PlaceInterface[]>} Promise that resolves once the list of places has been retrieved from the API.
  */
 export function findPlace(name: string, placeType: string): Promise<PlaceInterface[]> {

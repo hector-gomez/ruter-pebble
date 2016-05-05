@@ -1,3 +1,6 @@
+/**
+ * Event listener for the "Search" button (submits the search form)
+ */
 document.forms['search-form'].onsubmit = function onSubmitSearch(event) {
     // Obtain the name of the stop the user is looking for
     var stopName = event.target.getElementsByClassName('item-input')[0].value;
@@ -10,6 +13,9 @@ document.forms['search-form'].onsubmit = function onSubmitSearch(event) {
     return false;
 };
 
+/**
+ * Event listener for the "Add" button
+ */
 document.getElementById('add-places-button').onclick = function () {
     addSelectedPlacesToLocalStorage();
     //TODO Return to previous screen
@@ -18,7 +24,7 @@ document.getElementById('add-places-button').onclick = function () {
 /**
  * Callback invoked after the server has responded to the search query.
  *
- * @param resultSet Array of places (see PlaceInterface.ts in the Ruter SDK)
+ * @param {Array} resultSet Array of places (see PlaceInterface.ts in the Ruter SDK)
  */
 function onSearchSuccess(resultSet) {
     var resultsNode = document.getElementById('search-results');
@@ -37,6 +43,11 @@ function onSearchSuccess(resultSet) {
     Zepto('.item-checkbox').itemCheckbox();
 }
 
+/**
+ * Callback invoked when the search fails, either due to a bug or a failed API request.
+ *
+ * @param {string} error Error message.
+ */
 function onSearchError(error) {
     console.error(error);
 }

@@ -29,7 +29,7 @@ function onSearchSuccess(resultSet) {
     });
 
     // Update the styles using Slate
-    Zepto('.item-radio').itemRadio();
+    Zepto('.item-checkbox').itemCheckbox();
 }
 
 function onSearchError(error) {
@@ -49,12 +49,12 @@ function createListItem(placeName, placeId) {
     labelNode.className = 'item';
     labelNode.textContent = placeName;
 
-    var radioNode = document.createElement('input');
-    radioNode.className = 'item-radio';
-    radioNode.name = 'place-selection';
-    radioNode.type = 'radio';
-    radioNode.value = placeId;
-    labelNode.appendChild(radioNode);
+    var inputNode = document.createElement('input');
+    inputNode.className = 'item-checkbox';
+    inputNode.name = 'place-selection-' + placeId;
+    inputNode.type = 'checkbox';
+    inputNode.value = placeId;
+    labelNode.appendChild(inputNode);
 
     return labelNode;
 }

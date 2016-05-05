@@ -64,7 +64,7 @@ function addSelectedPlacesToLocalStorage() {
  * added to the search results.
  *
  * @param {string} placeName Name of the place.
- * @param {string} placeId Id of the place.
+ * @param {number} placeId Id of the place.
  * @returns {Element} The DOM element.
  */
 function createListItem(placeName, placeId) {

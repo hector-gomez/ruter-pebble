@@ -10,6 +10,11 @@ document.forms['search-form'].onsubmit = function onSubmitSearch(event) {
     return false;
 };
 
+document.getElementById('add-places-button').onclick = function () {
+    addSelectedPlacesToLocalStorage();
+    //TODO Return to previous screen
+};
+
 /**
  * Callback invoked after the server has responded to the search query.
  *
@@ -37,6 +42,24 @@ function onSearchError(error) {
 }
 
 /**
+ * Takes the user's current selection and persists it into local storage.
+ */
+function addSelectedPlacesToLocalStorage() {
+    var storedPlaces = [];
+    if (localStorage.getItem('places') != null) {
+        try {
+            storedPlaces = JSON.parse(localStorage.getItem('places'));
+        } catch (e) {
+            console.warn('Could not read stored places, overwriting.', e);
+        }
+    }
+    getSelectedPlaces().forEach(function (item) {
+        storedPlaces.push(item);
+    });
+    localStorage.setItem('places', JSON.stringify(storedPlaces));
+}
+
+/**
  * Helper function that creates a new DOM element for a list item, ready to be
  * added to the search results.
  *
@@ -53,8 +76,25 @@ function createListItem(placeName, placeId) {
     inputNode.className = 'item-checkbox';
     inputNode.name = 'place-selection-' + placeId;
     inputNode.type = 'checkbox';
-    inputNode.value = placeId;
+    inputNode.value = JSON.stringify({
+        id: placeId,
+        name: placeName
+    });
     labelNode.appendChild(inputNode);
 
     return labelNode;
+}
+
+/**
+ * Evaluates the user's currently selected places (stops).
+ *
+ * @returns {Array} Places currently selected by the user (as an array of objects).
+ */
+function getSelectedPlaces() {
+    var places = [];
+    var selectedNodes = document.getElementById('search-results').querySelectorAll('input:checked');
+    for (var i = 0; i < selectedNodes.length; i++) {
+        places.push(JSON.parse(selectedNodes[i].value));
+    }
+    return places;
 }

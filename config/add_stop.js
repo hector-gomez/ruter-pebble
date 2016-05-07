@@ -36,7 +36,7 @@ function onSearchSuccess(resultSet) {
 
     // Populate the results
     resultSet.forEach(function populateItem(item) {
-        resultsNode.appendChild(createListItem(item.Name, item.ID));
+        resultsNode.appendChild(createListItem(item));
     });
 
     // Update the styles using Slate
@@ -74,22 +74,24 @@ function addSelectedPlacesToLocalStorage() {
  * Helper function that creates a new DOM element for a list item, ready to be
  * added to the search results.
  *
- * @param {string} placeName Name of the place.
- * @param {number} placeId Id of the place.
+ * @param {PlaceInterface} place Place to represent in the DOM element.
  * @returns {Element} The DOM element.
  */
-function createListItem(placeName, placeId) {
+function createListItem(place) {
     var labelNode = document.createElement('label');
     labelNode.className = 'item';
-    labelNode.textContent = placeName;
+    labelNode.textContent = place.Name;
 
     var inputNode = document.createElement('input');
     inputNode.className = 'item-checkbox';
-    inputNode.name = 'place-selection-' + placeId;
+    inputNode.name = 'place-selection-' + place.ID;
     inputNode.type = 'checkbox';
     inputNode.value = JSON.stringify({
-        id: placeId,
-        name: placeName
+        ID: place.ID,
+        Name: place.Name,
+        District: place.District,
+        Zone: place.Zone,
+        PlaceType: place.PlaceType
     });
     labelNode.appendChild(inputNode);
 

@@ -18,7 +18,7 @@ document.forms['search-form'].onsubmit = function onSubmitSearch(event) {
  */
 document.getElementById('add-places-button').onclick = function () {
     addSelectedPlacesToLocalStorage();
-    //TODO Return to previous screen
+    window.location = './';
 };
 
 /**

@@ -17,14 +17,14 @@ document.forms['search-form'].onsubmit = function onSubmitSearch(event) {
  * Event listener for the "Add" button
  */
 document.getElementById('add-places-button').onclick = function () {
-    addSelectedPlacesToLocalStorage();
+    saveSelectedPlaces();
     window.location = './';
 };
 
 /**
  * Callback invoked after the server has responded to the search query.
  *
- * @param {Array} resultSet Array of places (see PlaceInterface.ts in the Ruter SDK)
+ * @param {PlaceInterface[]} resultSet Array of places (see PlaceInterface.ts in the Ruter SDK)
  */
 function onSearchSuccess(resultSet) {
     var resultsNode = document.getElementById('search-results');
@@ -53,21 +53,14 @@ function onSearchError(error) {
 }
 
 /**
- * Takes the user's current selection and persists it into local storage.
+ * Takes the user's current selection and persists it.
  */
-function addSelectedPlacesToLocalStorage() {
-    var storedPlaces = [];
-    if (localStorage.getItem('places') != null) {
-        try {
-            storedPlaces = JSON.parse(localStorage.getItem('places'));
-        } catch (e) {
-            console.warn('Could not read stored places, overwriting.', e);
-        }
-    }
+function saveSelectedPlaces() {
+    var savedPlaces = Persistence.getSavedPlaces();
     getSelectedPlaces().forEach(function (item) {
-        storedPlaces.push(item);
+        savedPlaces.push(item);
     });
-    localStorage.setItem('places', JSON.stringify(storedPlaces));
+    Persistence.savePlaces(savedPlaces);
 }
 
 /**
@@ -101,7 +94,7 @@ function createListItem(place) {
 /**
  * Evaluates the user's currently selected places (stops).
  *
- * @returns {Array} Places currently selected by the user (as an array of objects).
+ * @returns {PlaceInterface[]} Places currently selected by the user (as an array of objects).
  */
 function getSelectedPlaces() {
     var places = [];

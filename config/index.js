@@ -9,7 +9,7 @@ document.onreadystatechange = function () {
  * Reads the stored places from localStore and populates the UI with them.
  */
 function populateStoredPlaces() {
-    var places = JSON.parse(localStorage.getItem('places'));
+    var places = Persistence.getSavedPlaces();
     var listNode = document.getElementById('place-list');
     places.forEach(function createDomNode(place) {
         listNode.appendChild(createListNode(place));
